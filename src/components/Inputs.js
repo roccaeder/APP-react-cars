@@ -1,5 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import styled from "@emotion/styled";
+import { CreateCar } from "../services/CarFetch";
 
 const FormCar = styled.form`
   display: flex;
@@ -13,19 +14,24 @@ const FormCar = styled.form`
 
 export const Inputs = () => {
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    
-    console.log(e.target.elements.brand.value);
-    console.log(e.target.elements.model.value);
-    console.log(e.target.elements.year.value);
-    console.log(e.target.elements.color.value);
-    console.log(e.target.elements.price.value);
+  
+    const newCar = {
+      brand: e.target.elements.brand.value,
+      model: e.target.elements.model.value,
+      year: parseInt(e.target.elements.year.value),
+      color: e.target.elements.color.value,
+      price: parseInt(e.target.elements.price.value)
+    }
+    await CreateCar(newCar);
+    window.location.reload(false);
+
   }
   return (
     <>
-      <h1>Form for create a Car</h1>
       <FormCar onSubmit={handleSubmit}>
+      <h1>Form for create a Car</h1>
         <TextField
           id="outlined-basic"
           name="brand"
