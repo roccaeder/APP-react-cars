@@ -1,4 +1,4 @@
-export const CreateCarFetch = (data) => {
+export const CreateCar = (data) => {
   return fetch("http://localhost:3001/cars", {
     method: "POST",
     headers: {
@@ -14,9 +14,50 @@ export const CreateCarFetch = (data) => {
     });
 }
 
-export const ShowAllCarsFetch = () => {
-  fetch("http://localhost:3001/cars", {
+export const ShowAllCars = () => {
+  return fetch("http://localhost:3001/cars", {
     method: "GET",
+  })
+    .then((response) => {
+      return response.json()
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+export const ShowCarById = (id) => {
+  return fetch(`http://localhost:3001/cars/${id}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json()
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+
+export const DeleteCar = (id) => {
+  return fetch(`http://localhost:3001/cars/${id}`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      return response.json()
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+export const UpdateCar = (id, data) => {
+  return fetch(`http://localhost:3001/cars/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
   })
     .then((response) => {
       return response.json()
