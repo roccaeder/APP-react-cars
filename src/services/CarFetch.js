@@ -1,5 +1,5 @@
 export const CreateCar = (data) => {
-  return fetch("http://localhost:3001/cars", {
+  return fetch("http://localhost:3001/api/cars", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const CreateCar = (data) => {
 }
 
 export const ShowAllCars = () => {
-  return fetch("http://localhost:3001/cars", {
+  return fetch("http://localhost:3001/api/cars", {
     method: "GET",
   })
     .then((response) => {
@@ -27,7 +27,7 @@ export const ShowAllCars = () => {
 }
 
 export const ShowCarById = (id) => {
-  return fetch(`http://localhost:3001/cars/${id}`, {
+  return fetch(`http://localhost:3001/api/cars/${id}`, {
     method: "GET",
   })
     .then((response) => {
@@ -40,7 +40,7 @@ export const ShowCarById = (id) => {
 
 
 export const DeleteCar = (id) => {
-  return fetch(`http://localhost:3001/cars/${id}`, {
+  return fetch(`http://localhost:3001/api/cars/${id}`, {
     method: "DELETE",
   })
     .then((response) => {
@@ -52,7 +52,7 @@ export const DeleteCar = (id) => {
 }
 
 export const UpdateCar = (id, data) => {
-  return fetch(`http://localhost:3001/cars/${id}`, {
+  return fetch(`http://localhost:3001/api/cars/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
