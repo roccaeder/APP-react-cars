@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { Card } from "../components/Card";
+import { Inputs } from "../components/Inputs";
 import { ShowAllCars } from "../services/CarFetch";
 
 export const Main = () => {
@@ -32,6 +33,8 @@ export const Main = () => {
   },[]);
 
   return (
+    <>
+      <Inputs />
       <ContainerGrid>
         { cars.map((car) =>{
           return (
@@ -47,5 +50,6 @@ export const Main = () => {
           );
         })}
       </ContainerGrid>
+    </>
   );
 }

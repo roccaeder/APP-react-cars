@@ -31,7 +31,7 @@ export const Inputs = () => {
   return (
     <>
       <FormCar onSubmit={handleSubmit}>
-      <h1>Form for create a Car</h1>
+      <h1>FORM TO CREATE CAR</h1>
         <TextField
           id="outlined-basic"
           name="brand"

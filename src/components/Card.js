@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { Button } from "@mui/material";
+import { useHistory } from "react-router";
 import { DeleteCar } from "../services/CarFetch";
 import { ContentL, ContentS, ContentXL } from "./Types";
 
@@ -17,14 +18,20 @@ export const Card = (props) => {
     gap: 10px;
   `;
 
+  const history = useHistory();
+
   async function handleDeletElement(){
-    console.log("delete", props.id);
     await DeleteCar(props.id);
     window.location.reload(false);
   }
 
+  function GoToEditCar() {
+    sessionStorage.setItem("id", JSON.stringify(props.id));
+    history.push("/edit");
+  }
+
   return (
-    <ContainerCard>
+    <ContainerCard onClick={GoToEditCar}>
       <ContentL>{props.brand}</ContentL>
       <ContentS>{props.model}</ContentS>
       <ContentS>{props.color}</ContentS>

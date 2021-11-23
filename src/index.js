@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Inputs } from './components/Inputs';
 import { Main } from './pages/Main';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { EditCar } from './pages/EditCar';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Inputs />
-    <Main />
+    <Router>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route path="/edit" component={EditCar} />
+        </Switch>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
